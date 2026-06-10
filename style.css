@@ -1,5 +1,16 @@
 * {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template: repeat(auto-fit, minmax(300px, 3fr))/repeat(auto-fit, minmax(600px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    box-shadow: 0 0.5rem 1rem rgb(180, 178, 178);
+    padding: 1rem;
 }
