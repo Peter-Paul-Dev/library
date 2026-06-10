@@ -34,15 +34,15 @@ myLibrary.forEach(book => {
 
     cardAuthor = document.createElement("li");
     cardAuthor.textContent = book.author;
-    card.appendChild(cardAuthor);
+    cardList.appendChild(cardAuthor);
 
     cardPages = document.createElement("li");
     cardPages.textContent = book.pages;
-    card.appendChild(cardPages);
+    cardList.appendChild(cardPages);
 
     cardRead = document.createElement("li");
     cardRead.textContent = book.read;
-    card.appendChild(cardRead);
+    cardList.appendChild(cardRead);
 
     container.appendChild(card);
 });
