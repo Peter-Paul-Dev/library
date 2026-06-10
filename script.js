@@ -20,6 +20,7 @@ function addBookToLibrary (title, author, pages, read) {
 
 addBookToLibrary("Dune", "Frank Herbert", "~600", "Yes");
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "~300", "No");
+addBookToLibrary("The Metamorphosis", "Franz Kafka", "45", "Yes");
 
 myLibrary.forEach(book => {
     let card = document.createElement("div")
@@ -33,15 +34,15 @@ myLibrary.forEach(book => {
     card.appendChild(cardList);
 
     cardAuthor = document.createElement("li");
-    cardAuthor.textContent = book.author;
+    cardAuthor.textContent = "Author: " + book.author;
     cardList.appendChild(cardAuthor);
 
     cardPages = document.createElement("li");
-    cardPages.textContent = book.pages;
+    cardPages.textContent = "No. of pages: " + book.pages;
     cardList.appendChild(cardPages);
 
     cardRead = document.createElement("li");
-    cardRead.textContent = book.read;
+    cardRead.textContent = "Have read: " + book.read;
     cardList.appendChild(cardRead);
 
     container.appendChild(card);
