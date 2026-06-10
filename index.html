@@ -9,7 +9,12 @@
 </head>
 <body>
     <div class="container">
-          <form action="" method="get">
+        
+    </div>
+
+    <button command="show-modal" commandfor="add-book">Add book</button>
+        <dialog id="add-book">
+        <form action="" method="get">
             <fieldset>
                 <legend>Add a book</legend>
 
@@ -36,6 +41,8 @@
                 <button type="submit">Submit</button>
             </fieldset>
         </form>
-    </div>
+        <button commandfor="my-dialog" command="close">Close</button>
+        </dialog>
+</dialog>
 </body>
 </html>
