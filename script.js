@@ -1,4 +1,5 @@
 const myLibrary = [];
+const container = document.querySelector(".container");
 
 function Book(title, author, pages, read) {
     if (!new.target) {
@@ -13,9 +14,17 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLibrary (title, author, pages, read) {
-    bookNew = new Book(title, author, pages, read);
+    let bookNew = new Book(title, author, pages, read);
     myLibrary.push(bookNew);
 }
 
-addBookToLibrary("Dune", "Frank Herbert", "600", "Yes");
-addBookToLibrary("The Hobbit", "Tolkien", "A lot", "No")
+addBookToLibrary("Dune", "Frank Herbert", "~600", "Yes");
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "~300", "No");
+
+myLibrary.forEach(book => {
+    let card = document.createElement("div")
+    card.classList.add("card");
+    card.textContent = book.title + " " + book.author; 
+
+    container.appendChild(card);
+});
