@@ -21,6 +21,13 @@ body {
     grid-row: 2;
 }
 
+.card ul li {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 0.3rem;
+}
+
 body > button {
     position: absolute;
     right: 3%;

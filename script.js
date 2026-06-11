@@ -26,24 +26,29 @@ myLibrary.forEach(book => {
     let card = document.createElement("div")
     card.classList.add("card");
 
-    cardTitle = document.createElement("h3");
+    let cardTitle = document.createElement("h3");
     cardTitle.textContent = book.title;
     card.appendChild(cardTitle); 
 
-    cardList = document.createElement("ul");
+    let cardList = document.createElement("ul");
     card.appendChild(cardList);
 
-    cardAuthor = document.createElement("li");
+    let cardAuthor = document.createElement("li");
     cardAuthor.textContent = "Author: " + book.author;
     cardList.appendChild(cardAuthor);
 
-    cardPages = document.createElement("li");
+    let cardPages = document.createElement("li");
     cardPages.textContent = "No. of pages: " + book.pages;
     cardList.appendChild(cardPages);
 
-    cardRead = document.createElement("li");
+    let cardRead = document.createElement("li");
     cardRead.textContent = "Have read: " + book.read;
     cardList.appendChild(cardRead);
+
+    let checkBox = document.createElement("input");
+    checkBox.type = "checkbox";
+    checkBox.value = "yes";
+    cardRead.appendChild(checkBox);
 
     container.appendChild(card);
 });
