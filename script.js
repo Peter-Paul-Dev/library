@@ -1,4 +1,5 @@
 const myLibrary = [];
+const body = document.querySelector("body");
 const container = document.querySelector(".container");
 
 function Book(title, author, pages, read) {
@@ -17,10 +18,6 @@ function addBookToLibrary (title, author, pages, read) {
     let bookNew = new Book(title, author, pages, read);
     myLibrary.push(bookNew);
 }
-
-addBookToLibrary("Dune", "Frank Herbert", "~600", "No");
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "~300", "No");
-addBookToLibrary("The Metamorphosis", "Franz Kafka", "45", "No");
 
 function createCards () { 
     myLibrary.forEach(book => {
@@ -57,6 +54,9 @@ function createCards () {
 
 createCards();
 
+let userInputs;
+
+
 document.querySelector("#add-new-book").addEventListener("submit", function(event) {
     event.preventDefault();
     const formData = new FormData(this);
@@ -68,6 +68,8 @@ document.querySelector("#add-new-book").addEventListener("submit", function(even
             userInputs[key] = formData.get(key).toString();
         }
     }
-
-    console.log(userInputs);
+        
+    container.textContent = "";
+    addBookToLibrary(userInputs.title, userInputs.author, userInputs.pages, userInputs.read);
+    createCards();
 });
