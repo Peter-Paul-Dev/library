@@ -37,10 +37,43 @@ dialog {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 20rem;
-    height: 20rem;
+    height: 17rem;
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+}
+
+form {
+    position: relative;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 1rem;
+    font-size: 1.3rem;
+}
+
+legend {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+fieldset > div {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.3rem;
+}
+
+.close-button {
+    margin-top: 1rem;
+    position: absolute;
+    right: 3%;
+    top: 0;
+    padding: 0.5rem;
+    font-size: 1.1rem;
 }
