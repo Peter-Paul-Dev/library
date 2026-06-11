@@ -18,11 +18,12 @@ function addBookToLibrary (title, author, pages, read) {
     myLibrary.push(bookNew);
 }
 
-addBookToLibrary("Dune", "Frank Herbert", "~600", "Yes");
+addBookToLibrary("Dune", "Frank Herbert", "~600", "No");
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "~300", "No");
-addBookToLibrary("The Metamorphosis", "Franz Kafka", "45", "Yes");
+addBookToLibrary("The Metamorphosis", "Franz Kafka", "45", "No");
 
-myLibrary.forEach(book => {
+function createCards () { 
+    myLibrary.forEach(book => {
     let card = document.createElement("div")
     card.classList.add("card");
 
@@ -51,4 +52,22 @@ myLibrary.forEach(book => {
     cardRead.appendChild(checkBox);
 
     container.appendChild(card);
+    });
+}
+
+createCards();
+
+document.querySelector("#add-new-book").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+
+    let userInputs = {};
+
+    for (const key of formData.keys()) {
+        if (formData.get(key).toString().length > 0) {
+            userInputs[key] = formData.get(key).toString();
+        }
+    }
+
+    console.log(userInputs);
 });
