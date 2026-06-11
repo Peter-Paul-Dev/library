@@ -28,7 +28,7 @@ body {
 }
 
 body > button {
-    position: absolute;
+    position: fixed;
     right: 3%;
     bottom: 3%;
     width: 5rem;
