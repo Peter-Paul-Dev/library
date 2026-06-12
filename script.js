@@ -53,6 +53,7 @@ function createCards () {
 
     let removeCard = document.createElement("button");
     removeCard.textContent = "-";
+    removeCard.classList = "remove-card-button";
     card.appendChild(removeCard);
 
     removeCard.addEventListener("click", () => {
