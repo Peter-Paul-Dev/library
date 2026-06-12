@@ -14,6 +14,15 @@ function Book(title, author, pages, read) {
     this.id = crypto.randomUUID();
 }
 
+Book.prototype.changeReadStatus = function () {
+    if (this.read == "yes") {
+        this.read = "no";
+
+    } else {
+        this.read = "yes";
+    }
+}
+
 function addBookToLibrary (title, author, pages, read) {
     let bookNew = new Book(title, author, pages, read);
     myLibrary.push(bookNew);
@@ -46,15 +55,20 @@ function createCards () {
     cardRead.textContent = "Have read: " + book.read;
     cardList.appendChild(cardRead);
 
-    let checkBox = document.createElement("input");
-    checkBox.type = "checkbox";
-    checkBox.value = "yes";
-    cardRead.appendChild(checkBox);
+    let readButton = document.createElement("button");
+    readButton.textContent = "Change read status";
+    cardRead.appendChild(readButton);
 
     let removeCard = document.createElement("button");
     removeCard.textContent = "-";
     removeCard.classList = "remove-card-button";
     card.appendChild(removeCard);
+
+    readButton.addEventListener("click", () => {
+        book.changeReadStatus();
+        cardRead.textContent = "Have read: " + book.read;
+        cardRead.appendChild(readButton);
+    })
 
     removeCard.addEventListener("click", () => {
         let matchedCard = myLibrary.findIndex(book => book.id == card.dataset.bookId);
