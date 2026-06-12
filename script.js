@@ -19,10 +19,13 @@ function addBookToLibrary (title, author, pages, read) {
     myLibrary.push(bookNew);
 }
 
+addBookToLibrary("Dune", "Frank Herbert", "600", "yes"); 
+
 function createCards () { 
     myLibrary.forEach(book => {
     let card = document.createElement("div")
     card.classList.add("card");
+    card.dataset.bookId = book.id;
 
     let cardTitle = document.createElement("h3");
     cardTitle.textContent = book.title;
@@ -47,6 +50,18 @@ function createCards () {
     checkBox.type = "checkbox";
     checkBox.value = "yes";
     cardRead.appendChild(checkBox);
+
+    let removeCard = document.createElement("button");
+    removeCard.textContent = "-";
+    card.appendChild(removeCard);
+
+    removeCard.addEventListener("click", () => {
+        let matchedCard = myLibrary.findIndex(book => book.id == card.dataset.bookId);
+
+        myLibrary.splice(matchedCard, 1);
+        container.textContent = "";
+        createCards();
+    });
 
     container.appendChild(card);
     });
