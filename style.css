@@ -24,7 +24,7 @@ body {
 .card ul li {
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
+    align-items: center;    
     gap: 0.3rem;
 }
 

@@ -2,33 +2,32 @@ const myLibrary = [];
 const body = document.querySelector("body");
 const container = document.querySelector(".container");
 
-function Book(title, author, pages, read) {
-    if (!new.target) {
-        throw Error("You must use the 'new' operator to call the constructor");
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
     }
 
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.id = crypto.randomUUID();
-}
+    addBookToLibrary(title, author, pages, read) {
+        let bookNew = new Book(title, author, pages, read);
+        myLibrary.push(bookNew);
+    }
 
-Book.prototype.changeReadStatus = function () {
-    if (this.read == "yes") {
+    changeReadStatus() {
+        if (this.read == "yes") {
         this.read = "no";
 
     } else {
         this.read = "yes";
     }
+    }
 }
 
-function addBookToLibrary (title, author, pages, read) {
-    let bookNew = new Book(title, author, pages, read);
-    myLibrary.push(bookNew);
-}
+const duneBook = new Book;
 
-addBookToLibrary("Dune", "Frank Herbert", "600", "yes"); 
+duneBook.addBookToLibrary("Dune", "Frank Herbert", "600", "yes");
 
 function createCards () { 
     myLibrary.forEach(book => {
@@ -86,7 +85,6 @@ createCards();
 
 let userInputs;
 
-
 document.querySelector("#add-new-book").addEventListener("submit", function(event) {
     event.preventDefault();
     const formData = new FormData(this);
@@ -100,6 +98,7 @@ document.querySelector("#add-new-book").addEventListener("submit", function(even
     }
         
     container.textContent = "";
-    addBookToLibrary(userInputs.title, userInputs.author, userInputs.pages, userInputs.read);
+    addedBook = new Book; 
+    addedBook.addBookToLibrary(userInputs.title, userInputs.author, userInputs.pages, userInputs.read);
     createCards();
 });
